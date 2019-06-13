@@ -13,6 +13,11 @@ class ApplicationController < ActionController::Base
     redirect_to '/login' unless current_user
   end
 
+  # def order_list
+  #   @order_list = LineItem.where(order_id: 3)
+  # end 
+  # helper_method :order_list
+
   def cart
     @cart ||= cookies[:cart].present? ? JSON.parse(cookies[:cart]) : {}
   end

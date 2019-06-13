@@ -7,8 +7,10 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     if user.save
       session[:user_id] = user.id
+      flash[:success] = "Successfully Created User!"
       redirect_to '/'
     else
+      flash[:warning] = "Invalid Email or Password"
       redirect_to '/signup'
     end
   end
