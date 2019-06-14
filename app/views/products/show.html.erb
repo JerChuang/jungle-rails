@@ -39,6 +39,16 @@
       </div>
     </div>
 
+    <%= form_for :review, url: product_reviews_path(@product) do |f| %>
+      <h2>Review this product!</h2> 
+       <%= f.label :rating %><br>
+       <%= f.select(:rating, options_for_select([[1],[2],[3],[4],[5]])) %>
+      <br>
+      <%= f.label :comments %><br>
+      <%= f.text_field :description %><br>
+      <%= f.submit("Submit review") %><br>
+    <% end %>
+
   </article>
 
 </section>
