@@ -14,4 +14,11 @@ class ReviewsController < ApplicationController
     end
 
   end
+
+  def destroy
+    @product = Product.find(params['product_id'])
+    Review.destroy(params['id'])
+    redirect_to @product
+  end
+
 end
