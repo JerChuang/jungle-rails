@@ -131,6 +131,33 @@ cat3.products.create!({
   quantity: 23,
   price: 2_483.75
 })
+##Users
+## all test user accounts has password: "test"
+User.create first_name: "Testy", last_name:"McTesterface", email:"test@test.com", password_digest:"$2a$10$Y5Q5RdAwYSR2uohkVg40OOuciQ1dfEY5nylF3Lpf14N7yIAyRwwgC"
+User.create first_name: "Alice", last_name:"Testerson", email:"alice@test.com", password_digest:"$2a$10$Y5Q5RdAwYSR2uohkVg40OOuciQ1dfEY5nylF3Lpf14N7yIAyRwwgC"
+User.create first_name: "Bob", last_name:"Testington", email:"bob@test.com", password_digest:"$2a$10$Y5Q5RdAwYSR2uohkVg40OOuciQ1dfEY5nylF3Lpf14N7yIAyRwwgC"
+User.create first_name: "Charles", last_name:"Testerford", email:"charles@test.com", password_digest:"$2a$10$Y5Q5RdAwYSR2uohkVg40OOuciQ1dfEY5nylF3Lpf14N7yIAyRwwgC"
+User.create first_name: "Don", last_name:"Testershire", email:"don@test.com", password_digest:"$2a$10$Y5Q5RdAwYSR2uohkVg40OOuciQ1dfEY5nylF3Lpf14N7yIAyRwwgC"
+
+##Reviews
+
+Review.create product_id: 1, user_id: 1, description: "This is the most reddest red bookshelf I've ever seen", rating: 5
+Review.create product_id: 1, user_id: 2, description: "It's too bookshelfy for me", rating: 1
+Review.create product_id: 1, user_id: 3, description: "It has enough redness but not enough reddish-ness", rating: 3
+Review.create product_id: 1, user_id: 4, description: "Smells funky if you try to burn it", rating: 4
+Review.create product_id: 2, user_id: 2, description: "It's so electric!", rating: 5
+Review.create product_id: 3, user_id: 3, description: "Fits 9 people comfortably!", rating: 5
+Review.create product_id: 3, user_id: 3, description: "I bought two!", rating: 2
+Review.create product_id: 3, user_id: 3, description: "Smells good when you burn it", rating: 5
+Review.create product_id: 4, user_id: 4, description: "Display doesn't work!", rating: 1
+Review.create product_id: 5, user_id: 5, description: "Can slice other things as well!", rating: 5
+Review.create product_id: 6, user_id: 3, description: "Slipping hazard!", rating: 1
+Review.create product_id: 7, user_id: 3, description: "My company issued this as our uniform, it's so comfy!", rating: 5
+Review.create product_id: 8, user_id: 3, description: "Don't be fooled by the description! They only spy on Russians!", rating: 5
+Review.create product_id: 9, user_id: 3, description: "All my other socks are more socksy than this", rating: 2
+Review.create product_id: 10, user_id: 3, description: "I was so suprised to receive the glasses and beard too!", rating: 5
+Review.create product_id: 10, user_id: 3, description: "I have one that looks just like this from Arc'teryx that costs $9230.00! ", rating: 5
+
 
 
 puts "DONE!"
