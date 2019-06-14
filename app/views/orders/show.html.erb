@@ -15,12 +15,12 @@
         </tr>
       </thead>
       <tbody>
-
-      
+     
         <% @order_list.each do |item| %>
-        <%= render 'item', product: item.product, quantity: item.quantity%>
-  
-        <% end %>
+          
+          <%= render 'item', product: item.product, quantity: item.quantity%>
+         <% end %>
+
       </tbody>
       <tfoot>
         <tr>

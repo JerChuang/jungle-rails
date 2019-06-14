@@ -3,16 +3,19 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @order_list = LineItem.where(order_id: params[:id]).joins("INNER JOIN products ON products.id = order_id")
+    puts "ORDER_LIST HERE" 
+    puts @order_list
   end
 
   def create
     charge = perform_stripe_charge
     @order  = create_order(charge)
+  
 
     if @order.valid?
       empty_cart!
-      redirect_to @order, notice: 'Your Order has been placed.'
       OrderMailer.receipt_email(@order).deliver_later
+      redirect_to @order, notice: 'Your Order has been placed.'
     else
       redirect_to cart_path, flash: { error: @order.errors.full_messages.first }
     end
