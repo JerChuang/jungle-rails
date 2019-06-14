@@ -1,6 +1,8 @@
 class Review < ActiveRecord::Base
-  validates :product, presence: true
-  validates :user, presence: true
+  belongs_to :product
+  
+  validates :product_id, presence: true
+  validates :user_id, presence: true
   validates :rating, presence: true
 
 end
