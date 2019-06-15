@@ -30,10 +30,9 @@
                     Rating: <%= item.rating%>
                   <br>
                     Comments: <%= item.description%>
-                  <br>
+                  
                   <% if item.user == current_user %>
-       
-                  <%= button_to('Delete', product_review_path(@product, item.id), method: "delete", remote: true, data: { confirm: 'Are you sure?'}) %>
+                    <%= button_to('Delete Review', product_review_path(@product, item.id), method: "delete", data: { confirm: 'Are you sure?'}) %>
                   <% end%>
                   <br>           
               </dd>
