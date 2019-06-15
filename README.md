@@ -29,5 +29,5 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 
 ## Screenshots
 
-!["Order"](https://github.com/JerChuang/Chatty/blob/master/order.png)
-!["Product"](https://github.com/JerChuang/Chatty/blob/master/product.png)
+!["Order"](https://github.com/JerChuang/jungle-rails/blob/master/public/order.png)
+!["Product"](https://github.com/JerChuang/jungle-rails/blob/master/public/product.png)
