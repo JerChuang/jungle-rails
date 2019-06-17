@@ -68,12 +68,24 @@ RSpec.describe User, type: :model do
 
   end
 
-  describe "Associations" do
-    it "should have many reviews" do
+  describe 'Associations' do
+    it 'should have many reviews' do
       assc = described_class.reflect_on_association(:reviews)
       expect(assc.macro).to eq :has_many
     end
   end
+
+  describe '.authenticate_with_credentials' do
+    it 'should return user if authenticated with e-mail and password' do
+      @user = User.create first_name: 'Alice', last_name: 'Wilson', email: 'alice.wilson@test.com', password: '12345678', password_confirmation: '12345678'
+      expect(@user).to eq User.authenticate_with_credentials('alice.wilson@test.com', '12345678')
+    end
+    it 'should return false if not authenticated with correct password' do
+      @user = User.create first_name: 'Alice', last_name: 'Wilson', email: 'alice.wilson@test.com', password: '12345678', password_confirmation: '12345678'
+      expect(User.authenticate_with_credentials('alice.wilson@test.com', '1234567')).to eq false
+    end
+  end
+
 
 end
 

@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(user_params)
-    if user.save
+    user = User.create(user_params)
+    if user = User.authenticate_with_credentials(user_params[:email], user_params[:password])
       session[:user_id] = user.id
       flash[:success] = "Successfully Created User!"
       redirect_to '/'

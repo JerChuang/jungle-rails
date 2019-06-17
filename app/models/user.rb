@@ -11,5 +11,9 @@ class User < ActiveRecord::Base
   validates :password, length: {minimum: 8}
   validates :password_confirmation, length: {minimum: 8}
 
+  def self.authenticate_with_credentials (email, password)
+    User.find_by(email: email).try(:authenticate, password)
+  end
+
 end
 
