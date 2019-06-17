@@ -84,6 +84,16 @@ RSpec.describe User, type: :model do
       @user = User.create first_name: 'Alice', last_name: 'Wilson', email: 'alice.wilson@test.com', password: '12345678', password_confirmation: '12345678'
       expect(User.authenticate_with_credentials('alice.wilson@test.com', '1234567')).to eq false
     end
+    it 'should return user if authenticated with e-mail with wrong case' do
+      @user = User.create first_name: 'Alice', last_name: 'Wilson', email: 'alice.wilson@test.com', password: '12345678', password_confirmation: '12345678'
+      expect(User.authenticate_with_credentials('alice.WILson@test.com', '12345678')).to eq @user
+    end
+    it 'should return user if authenticated with e-mail with leading or trailing spaces' do
+      @user = User.create first_name: 'Alice', last_name: 'Wilson', email: 'alice.wilson@test.com', password: '12345678', password_confirmation: '12345678'
+      expect(User.authenticate_with_credentials('   alice.WILson@test.com       ', '12345678')).to eq @user
+    end
+
+    
   end
 
 
