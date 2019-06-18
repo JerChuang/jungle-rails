@@ -7,4 +7,11 @@ class Order < ActiveRecord::Base
 
   validates :stripe_charge_id, presence: true
 
+  after_create do |order|
+    order.line_items.each do |entry|
+    entry.product.quantity = entry.product.quantity - entry.quantity
+    entry.product.save
+    end
+  end
+
 end
